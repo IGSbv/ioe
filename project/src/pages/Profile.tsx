@@ -3,6 +3,9 @@ import { useAuthStore } from '../store/authStore';
 
 export default function Profile() {
   const user = useAuthStore((state) => state.user);
+  
+  // Conversion rate from USD to INR
+  const USD_TO_INR = 83;
 
   if (!user) return null;
 
@@ -67,7 +70,7 @@ export default function Profile() {
                           {booking.status}
                         </span>
                         <p className="ml-4 text-sm font-medium text-gray-900">
-                          ${booking.price}
+                          ₹{(booking.price * USD_TO_INR).toLocaleString()}
                         </p>
                       </div>
                     </div>
