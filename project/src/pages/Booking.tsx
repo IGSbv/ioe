@@ -9,6 +9,9 @@ const DEMO_FLIGHTS = [
   { id: 4, time: '19:15', price: 179 },
 ];
 
+// Exchange rate from USD to INR (example: 1 USD = 85 INR)
+const EXCHANGE_RATE = 85;
+
 export default function Booking() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -68,7 +71,7 @@ export default function Booking() {
                       </p>
                     </div>
                     <div className="text-sm font-medium text-gray-900">
-                      ${flight.price}
+                      ₹{(flight.price * EXCHANGE_RATE).toLocaleString()}
                     </div>
                   </div>
                 </div>
